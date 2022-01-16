@@ -59,7 +59,13 @@ header{
     padding:10px;
     border-radius:15px;
     cursor:pointer;
-    background-color:blueviolet;
+    background-color:rgb(38, 6, 68);
     color:white;
+}
+
+.start-btn:hover{
+
+background-color:blueviolet;
+    
 }
    
