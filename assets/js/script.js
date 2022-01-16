@@ -6,36 +6,9 @@ var startQuizEl = document.getElementById("start-quiz");
 var questionsContainerEl= document.getElementById("questions-container");
 var questionEl = document.getElementById("question");
 var answerButtonEl = document.getElementById ("answer-btn");
+var checkAnswerEl = document.getElementById ("check-answer");
 
-
-// Start Button will tigger the first question 
-StartButton.addEventListener("clicl", startQuiz{
-    currentQuestionIndex++
-    setNextQuestion()
-});
-
-// Timer Countdown
-function timeCount() {
-    timer--;
-    quizTimerEl.textContent="Time: " + "timer"
-    if(timer==0){
-        saveScore();
-    }
-}
-
-//Start Quiz
-
-function startQuiz(){
-    timerID = setInterval(timeCount, 1000);
-    startQuizEl.classList.add("hide");
-    currentQuestionIndex = 0 ;
-    questionsContainerEl.classList.add("hide");
-
-    timeCount();
-    setNextQuestion();
-    
-};
-
+// questions for the quiz
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -85,15 +58,81 @@ var questions = [
             {text: "var colors='red','green','blue'", correct:false},
         ]
     },
-    
-    
+];
 
 
-]
+// Start Button will tigger the first question 
+startButtonEl.addEventListener("click", startQuiz {
+    currentQuestionIndex = currentQuestionIndex++;
+    setNextQuestion();
+});
+
+// Timer Countdown
+function timeCount() {
+    timer--;
+    quizTimerEl.textContent="Time: " + "timer"
+    if(timer==0){
+        saveScore();
+    }
+}
+
+//Start Quiz
+
+function startQuiz(){
+    timerID = setInterval(timeCount, 1000);
+    startQuizEl.classList.add("hide");
+    currentQuestionIndex = 0 ;
+    questionsContainerEl.classList.remove("hide");
+
+    timeCount();
+    setNextQuestion();
+    
+};
+
+// goes to next question 
 
 function setNextQuestion(){
+    showQuestion(currentQuestionIndex);
 
 }
 
+// displays the question
+function showQuestion(questions){
+    questionEl.innerText = question.question;
+    question.answers.foreach(answer =>{
+        var button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn")
+        if(answer.corect){
+            button.dataset.correct =answer.correct;
+        }
+        button.addEventListener("click",selectAnswer);
+        answerButtonEl.appendChild(button);
+
+    })
+}
+
+// selected Answer
+function selectAnswer(e){
+    var selectedButton = e.target;
+    var correct = selectAnswer.dataset.correct;
+    checkAnswerEl.classList.remove("hide");
+
+    if(correct){
+        checkAnswerEl.innerHTML = "Correct Answer!";
+    } else{
+        checkAnswerEl.innerHTML = "Sorry, That was a Incorrect answer.";
+        if (timer<=15){
+            timer=0;
+        } else{
+            timer=timer-15;
+        }
+
+    }
+};
 
 
+// save scores
+function saveScore() {
+
+}
