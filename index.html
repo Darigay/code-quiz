@@ -26,28 +26,40 @@
 
         <div class="controls">
             <button id="start-btn" class="start-btn"> Start Quiz </button>
+        
         </div>
 
     </section>
 
-    <section id="questions-container" class="hide">
-        <h1 id="question">Question</h1>
-        <div id=" answer-btn" class="answers-btn">
+    <section id="questions-container" class=hide>
+        <div id="questions">Question</div>
+        <div id="answer-btns" class="answer-btns">
             <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
-        <h2 id="check-answer" class="check-answer hide"></h2>
+
     </section>
 
     <section id="score-container" class="hide">
         <form id="submit-form">
             <h3 id="your-score"></h3>
             <label id="initials-label">Enter your initials to save the score:</label>
-            <input type="text" id="initial" maxlength="3" placeholder="Enter your Initials"/>
+            <input type="text" id="initials" maxlength="3" placeholder="Enter your Initials"/>
             <button id="submit-btn">Submit</button>
         </form>
+    </section>
+
+    <section id="highscores-container" class="hide">
+        <div id="high-scores">
+            <h4 class="board">Score Board</h4>
+            <div id="highscore" class="highscorelist"></div>
+            <div class="controls">
+                <button id="restart-btn">Restart</button>
+                <button id="clear-btn">Clear Scores</button>
+            </div>
+        </div>
     </section>
     
     <script src="./assets/js/script.js"></script>

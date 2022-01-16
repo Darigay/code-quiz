@@ -1,12 +1,25 @@
 var timer = 75;
 var timerID;
 var quizTimerEl = document.getElementById("quizTimer")
-var startButtonEl = document.getElementById("start-btn");
+
 var startQuizEl = document.getElementById("start-quiz");
+var startButton = document.getElementById("start-btn");
+
 var questionsContainerEl= document.getElementById("questions-container");
-var questionEl = document.getElementById("question");
-var answerButtonEl = document.getElementById ("answer-btn");
-var checkAnswerEl = document.getElementById ("check-answer");
+var questionsEl = document.getElementById("questions");
+var answerButton = document.getElementById ("answer-btns");
+//var checkAnswerEl = document.getElementById ("check-answer");
+
+var initialsLabelEl = document.getElementById("initials-label");
+var initialsEl = document.getElementById("initials");
+var submitButton = document.getElementById ("submit-btn");
+
+var clearScoreButton = document.getElementById ("clear-btn");
+var restartButton = document.getElementById ("restart-btn");
+
+var scoreFieldEl = document.getElementById("highscore");
+//var scoreEl = JSON.parse(localstorage.getitem("scores"));
+
 
 // questions for the quiz
 var questions = [
@@ -61,78 +74,76 @@ var questions = [
 ];
 
 
-// Start Button will tigger the first question 
-startButtonEl.addEventListener("click", startQuiz {
-    currentQuestionIndex = currentQuestionIndex++;
-    setNextQuestion();
-});
+var questionIndex;
 
-// Timer Countdown
-function timeCount() {
+//Tigger the start Button 
+
+startButton.addEventListener("click", startQuiz);
+
+function clickTime()
+{
     timer--;
-    quizTimerEl.textContent="Time: " + "timer"
-    if(timer==0){
+    quizTimerEl.textContent = "Time: " + timer;
+
+    if(timer<= 0){
         saveScore();
     }
 }
 
-//Start Quiz
+
 
 function startQuiz(){
-    timerID = setInterval(timeCount, 1000);
-    startQuizEl.classList.add("hide");
-    currentQuestionIndex = 0 ;
-    questionsContainerEl.classList.remove("hide");
 
-    timeCount();
-    setNextQuestion();
+    timerID = setInterval(clickTime,1000);
+    
+    questionsContainerEl.classList.add("hide");
+
+    questionIndex = 0;
+    questionsEl.classList.remove("hide");
+
+    clickTime();
+
+
+
     
 };
 
-// goes to next question 
-
-function setNextQuestion(){
-    showQuestion(currentQuestionIndex);
-
-}
-
-// displays the question
-function showQuestion(questions){
-    questionEl.innerText = question.question;
-    question.answers.foreach(answer =>{
-        var button = document.createElement("button");
-        button.innerText = answer.text;
-        button.classList.add("btn")
-        if(answer.corect){
-            button.dataset.correct =answer.correct;
-        }
-        button.addEventListener("click",selectAnswer);
-        answerButtonEl.appendChild(button);
-
-    })
-}
-
-// selected Answer
-function selectAnswer(e){
-    var selectedButton = e.target;
-    var correct = selectAnswer.dataset.correct;
-    checkAnswerEl.classList.remove("hide");
-
-    if(correct){
-        checkAnswerEl.innerHTML = "Correct Answer!";
-    } else{
-        checkAnswerEl.innerHTML = "Sorry, That was a Incorrect answer.";
-        if (timer<=15){
-            timer=0;
-        } else{
-            timer=timer-15;
-        }
-
-    }
+function saveScore(){
+    alert("score");
 };
 
 
-// save scores
-function saveScore() {
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
