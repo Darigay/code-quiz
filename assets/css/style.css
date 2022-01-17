@@ -16,9 +16,10 @@ a{
     text-decoration:none;   
 }
 
-/*.centered {
-    text-allign:center;
+.centered {
+    text-align:center;
 }
+
 /* Header*/
 
 header{
@@ -28,14 +29,15 @@ header{
     margin:30px auto;
 }
 
-.scores{
-    color: blueviolet;
+.quizTimer{
+
+    font-size:20px;
 }
+
 
 /* start quiz  */
 
 .start-quiz{
-
 
     text-align: center;
     width:50%;
@@ -51,11 +53,22 @@ header{
       
     }
 
-.start-btn{
+h1 {
+        margin-bottom: 10px;
+   }
+      
+h2 {
+        border-top: 1px solid;
+        margin: 20px 0;
+        text-align: center;
+   }
+
+ button {
    
     font-family: Arial, Helvetica, sans-serif;
     border:none;
     width:auto;
+    overflow:visible;
     padding:10px;
     border-radius:15px;
     cursor:pointer;
@@ -63,9 +76,51 @@ header{
     color:white;
 }
 
-.start-btn:hover{
+button:hover{
 
 background-color:blueviolet;
     
 }
+
+.hide {
+    display:none;
+}
+
+.controls {
+     display: flex;
+     justify-content: center;
+     align-items:center;
+     margin: 15px 0;
+}
+
+/* enter- initials */
+input[type="text"] {
+    padding:15px;
+    margin:10px 0;
+    border:1px ;
+    border-radius: 10px;
+    box-sizing:border-box;
+}
+
+/*Highscores*/
+.highscore{
+    display:flex;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.name-div, .score-div{
+    flex:1 30%;
+    padding:10px 0;
+}
+
+/*** MEDIA QUERY FOR MOBILE PHONES AND SMALLER ***/
+/* this will be applied on any screen smaller than 575px */
+@media screen and (max-width: 575px) {
+    .btn-grid {
+      grid-template-columns: repeat(1, auto);
+      gap: 0;
+      margin: 0;
+    }
+  }
    

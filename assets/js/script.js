@@ -5,10 +5,10 @@ var quizTimerEl = document.getElementById("quizTimer")
 var startQuizEl = document.getElementById("start-quiz");
 var startButton = document.getElementById("start-btn");
 
-var questionsContainerEl= document.getElementById("questions-container");
-var questionsEl = document.getElementById("questions");
-var answerButton = document.getElementById ("answer-btns");
-//var checkAnswerEl = document.getElementById ("check-answer");
+var questionContainerEl = document.getElementById("question-container");
+var questionEl = document.getElementById("question");
+var answerButtonsEl = document.getElementById ("answer-btns");
+var checkAnswerEl = document.getElementById ("check-answer");
 
 var initialsLabelEl = document.getElementById("initials-label");
 var initialsEl = document.getElementById("initials");
@@ -18,7 +18,7 @@ var clearScoreButton = document.getElementById ("clear-btn");
 var restartButton = document.getElementById ("restart-btn");
 
 var scoreFieldEl = document.getElementById("highscore");
-//var scoreEl = JSON.parse(localstorage.getitem("scores"));
+var scoreEl = JSON.parse(localstorage.getitem("scores")) || [];
 
 
 // questions for the quiz
@@ -75,6 +75,7 @@ var questions = [
 
 
 var questionIndex;
+var shuffledQuestions;
 
 //Tigger the start Button 
 
@@ -96,22 +97,80 @@ function startQuiz(){
 
     timerID = setInterval(clickTime,1000);
     
-    questionsContainerEl.classList.add("hide");
-
-    questionIndex = 0;
-    questionsEl.classList.remove("hide");
-
-    clickTime();
-
-
-
+    startQuizEl.hidden= true;
+    //shuffledQuestions = questions.sort(() => Math.random() - .5)
+    questionIndex = questions[0];
+    questionContainerEl.style.display="block";
     
+    clickTime();
+    nextQuestion(questionIndex);
+
 };
+ 
+
+function nextQuestion(question){
+
+    questionEl.innerText = question.question;
+    question.answers.forEach(answer => {
+       var button = document.createElement("button");
+       
+       button.innerText = answer.text;
+       button.classList.add("btn");
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        };
+        button.addEventListener("click", selectAnswer);
+        answerButtonsEl.appendChild(button);
+    })
+   resetState();
+};
+
+function resetState(){
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild
+            (answerButtonsEl.firstChild)
+}
+
+};
+
+function selectAnswer(event) {
+    var selectedButton = e.target;
+    var correct = selectedButton.dataset.correct;
+
+    // check if the answer
+    if(correct){
+        checkAnswerEl.innerHTML = "Correct Answer!";
+    }
+    else {
+        checkAnswerEl.innerHTML = "Sorry, Thats a wrong Answer!";
+        if (timer <= 10) {
+            timer = 0;
+        } else {
+            // If the answer is wrong, Deduct time by 10;
+            timer = timer-10;
+        }
+    }
+}
+
+Array.from(answerButtonsEl.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+})
+
+if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide")
+    checkAnswerEl.classList.remove("hide")
+} else {
+    startButton.classList.remove("hide")
+    saveScore();
+}
+};
+
+
+
 
 function saveScore(){
     alert("score");
 };
-
 
 
 
