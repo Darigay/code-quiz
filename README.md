@@ -18,6 +18,12 @@ Coding assessments are an important part of the interview process for developers
 ## ScreenShot of website
 
 
+![code-quiz](https://user-images.githubusercontent.com/94805706/149716658-239a1e6c-67ab-4288-952d-6adc751694d7.jpg)
+![code-quiz2](https://user-images.githubusercontent.com/94805706/149716659-1d1ad0ab-4741-468c-b225-2ec528cc34f0.jpg)
+![code-quiz3](https://user-images.githubusercontent.com/94805706/149716661-85decfb3-0390-41e2-b94f-d62d9d3a5743.jpg)
+![code-quiz4](https://user-images.githubusercontent.com/94805706/149716663-f1855878-f568-47b4-a84c-8bef1d493861.jpg)
+
+
 ## Resources
 - W3schools.com
 - stackoverflow
