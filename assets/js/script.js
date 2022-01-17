@@ -180,7 +180,7 @@ function saveScore(){
         questionContainerEl.classList.add("hide");
         document.getElementById("score-container").classList.remove("hide");
         document.getElementById("your-score").textContent="Your Score is " + timer;
-    }, 2000)
+    }, 1000)
  };
 
 

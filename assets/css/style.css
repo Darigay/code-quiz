@@ -27,6 +27,22 @@ header{
     flex-wrap: wrap;
     justify-content: space-between;
     margin:30px auto;
+    color:rgb(233, 15, 88);
+    font-size: 20px;
+}
+
+scores a,
+.quizTimer {
+  font-size: 20px;
+}
+
+.scores a {
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.scores a:hover {
+  color: rgb(238, 113, 196);
 }
 
 .quizTimer{
@@ -43,6 +59,7 @@ header{
     width:50%;
     margin-left: 25%;
     margin-right: 25%;
+    font-size: 20px;
 
 }
 
@@ -55,21 +72,31 @@ header{
 
 h1 {
         margin-bottom: 10px;
+        font-size: 35px;
    }
       
 h2 {
         border-top: 1px solid;
         margin: 20px 0;
         text-align: center;
+        font-size: 20px;
    }
+
+.answer-btns{
+    display:grid;
+    gap:10px;
+    margin: 20px 0;
+}
 
  button {
    
     font-family: Arial, Helvetica, sans-serif;
     border:none;
+    font-size: 25px;
     width:auto;
     overflow:visible;
     padding:10px;
+    margin:10px;
     border-radius:15px;
     cursor:pointer;
     background-color:rgb(38, 6, 68);
@@ -93,29 +120,35 @@ background-color:blueviolet;
      margin: 15px 0;
 }
 
+
 /* enter- initials */
 input[type="text"] {
     padding:15px;
     margin:10px 0;
+    font-size: 20px;
     border:1px ;
     border-radius: 10px;
     box-sizing:border-box;
 }
 
-/*Highscores*/
+/*scores*/
+
 .highscore{
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     text-align:center;
 }
 
 .name-div, .score-div{
-    flex:1 30%;
-    padding:10px 0;
+    flex:1 35%;
+    display: inline-flex;
+    width:40%;
+    padding:10px 10px 10px 10px;
+    border:1px solid;
 }
 
-/*** MEDIA QUERY FOR MOBILE PHONES AND SMALLER ***/
-/* this will be applied on any screen smaller than 575px */
+/* MEDIA QUERY */
+
 @media screen and (max-width: 575px) {
     .answer-btns {
       grid-template-columns: repeat(1, auto);
